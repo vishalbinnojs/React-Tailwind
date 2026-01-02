@@ -22,7 +22,9 @@ function App() {
         {
           path: "/",
           element: <Home />,
-          // this loader is used to fetch data before rendering the component and it will be available in the component using useLoaderData hook. Also there is no need to use useEffect for fetching data. Also it will automatically removes the promise delay and converting the data into json format.
+          // This loader is used to fetch data before rendering the component and it
+         // will be available in the component using useLoaderData hook. Also there is no need to use useEffect for fetching data.
+         // Also it will automatically removes the promise delay and converting the data into json format.
           loader: () => {
           return    fetch("https://jsonplaceholder.typicode.com/users?_limit=5")
           }
