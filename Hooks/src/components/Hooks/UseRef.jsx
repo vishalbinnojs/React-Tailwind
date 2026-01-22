@@ -1,7 +1,7 @@
 // import React,{useState,useEffect ,useRef} from "react";
 
 // const UseRef = () => {
-//   // useRef is a Hook that returns a mutable ref object whose .current property persists(hold prev value) across renders.
+//   // useRef is a Hook that returns a mutable ref object whose current property persists(hold prev value) across renders.
 //   // Two main uses of useRef (a) Accessing DOM Elements (b) Storing mutable values without re-renders
 //   //  const inputRef = React.useRef(null);
 //   const redBox = React.useRef(null);
@@ -72,19 +72,23 @@ const UseRef = () => {
   const [randomNumber, setRandomNumber] = useState(0);
   const [count,setCount] = useState(0)
   // const  [renderCount, setRenderCount] = useState(0)
+  
   //  We can't use useState here because when the component mounts useEffect will render the page and to record the count we have to set the renderCount in useEffect which will further render the component and the loop goes on.
 
   // To store the re-render count you have to use useRef hook which do not re-render the component when count changes and also it persist the value across re-renders.
  const renderCountRef = useRef(0);
+ console.log(renderCountRef);
  
   const generateRandomNumber = () => {
     const number = Math.floor(Math.random()*100);
     setRandomNumber(number);
   };
   useEffect(()=>{
-    console.log("re-render trigger hua hai")
+    console.log("useEffect runs after component Mounts....")
     // setRenderCount(renderCount+1)
-    renderCountRef.current += 1;
+    renderCountRef.current+=  1;
+    console.log(renderCountRef);
+    
   },[randomNumber])
   return (
     <>
