@@ -1,7 +1,7 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 
 const Counter = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0);  
   const [quantity,setQuantity] = React.useState(1)
  
   
@@ -12,6 +12,7 @@ const Counter = () => {
 
   const memoizedValue = React.useMemo(() => {
     const result = expensiveTask();
+    // it will memoize this return value
     return result;
   }, [quantity]);
  
