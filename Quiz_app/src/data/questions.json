@@ -34,9 +34,9 @@
   "answer": "margin"
 },
 {
-  "question": "7. Which keyword is used to declare variables in modern JavaScript?",
-  "options": ["var", "let", "variable", "const"],
-  "answer": "let"
+  "question": "7. How do you convert a JSON string to a JavaScript object?",
+  "options": ["JSON.parse()", "JSON.stringify()", "JSON.convert()", "parse.JSON()"],
+  "answer": "JSON.parse()"
 },
 {
   "question": "8. Which method adds a new element to the end of an array?",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import questions from "./questions.json";
+import questions from "../data/questions.json";
 import Button from "./Button";
 
 import { FaAngleDoubleLeft } from "react-icons/fa";
