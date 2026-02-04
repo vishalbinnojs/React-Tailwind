@@ -1,7 +1,7 @@
 import {useState} from "react"
 import './App.css'
 import Timer from './components/Timer'
-import Questions from "./components/Questions"
+import Questions from "./data/questions.json"
 import Result from "./components/Result"    
 
 
