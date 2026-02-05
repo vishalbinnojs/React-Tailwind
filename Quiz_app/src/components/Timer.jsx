@@ -1,21 +1,22 @@
 import React,{useState, useEffect} from "react";
 
 const Timer = ({setShowResult}) => {
-    const [timeLeft,setLeftTime] = useState(450)
+    const [timeLeft,setTimeLeft] = useState(450)
  const [displayTime,setDisplayTime]= useState();
  
  //Time Logic
     useEffect(()=>{
       let intervalId =  setInterval(() => {
-            setLeftTime(prev => {
+            setTimeLeft(prev => {
                 if(prev <= 0){
+                  // clearInterval from browser when it reaches to zero
                     clearInterval(intervalId)
                     return 0;
                 } 
                 return prev - 1;
             })
         },1000)
-        
+        // clear the interval on component unmounts
         return () => clearInterval(intervalId);
         
     },[])

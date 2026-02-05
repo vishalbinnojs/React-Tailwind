@@ -12,10 +12,11 @@ const Questions = ({ getScore, setShowResult }) => {
   // console.log("score", score);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [currentAnswer, setCurrentAnswer] = useState(null);
-  // console.log("selectedAnswers", selectedAnswers)
-  // console.log("currentAnswer",currentAnswer);
+  console.log("selectedAnswers", selectedAnswers)
+  console.log("currentAnswer",currentAnswer);
+console.log("");
 
-  const [submitButton, setSubmitButton] = useState(false);
+  const isLastQuestion = currentIndex === questions.length - 1;
 
   const handleOptionClick = (option) => {
     const correctAnswer = questions[currentIndex].answer;
@@ -43,14 +44,9 @@ const Questions = ({ getScore, setShowResult }) => {
       return;
     }
     setCurrentIndex((prevIndex) => prevIndex - 1);
-    setSubmitButton(false);
     setCurrentAnswer(null);
   };
   const nextQuestion = () => {
-    if (currentIndex === questions.length - 1) {
-      setSubmitButton(true);
-      return;
-    }
     setCurrentIndex((prevIndex) => prevIndex + 1);
     setCurrentAnswer(null);
   };
@@ -101,7 +97,7 @@ const Questions = ({ getScore, setShowResult }) => {
         </Button>
       </div>
 
-      {submitButton && (
+      {isLastQuestion && (
         <button
           className="px-3 py-2 w-[100px] bg-[#10B981] rounded-xl  hover:scale-110 transform-gpu transition-all duration-200 cursor-pointer  "
           onClick={() => {

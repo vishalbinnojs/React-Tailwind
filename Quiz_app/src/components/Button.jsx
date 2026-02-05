@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ style, showQuestion, icon, children, type = "next" }) => {
+const Button = ({ style, showQuestion, icon, children}) => {
   return (
     <button 
       onClick={showQuestion}
