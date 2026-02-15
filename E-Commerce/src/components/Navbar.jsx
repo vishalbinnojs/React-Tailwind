@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-zinc-900  flex  items-center gap-16 text-gray-200 px-5 max-[768px]:gap-8 max-[480px]:gap-5">
+      <nav className="bg-zinc-900 flex items-center gap-16 text-gray-200 px-5 max-[768px]:gap-8 max-[480px]:gap-5">
         <img
           className="w-15"
           src="https://png.pngtree.com/png-vector/20220930/ourmid/pngtree-shopping-logo-design-for-online-store-website-png-image_6239056.png"

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <header>
+      <header className="w-full sticky top-0 z-20">
         <Navbar />
       </header>
       <main>

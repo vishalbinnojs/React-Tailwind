@@ -29,12 +29,16 @@ const ProductDetail = () => {
     >
   {fetchedData ? (<Loader />):(
         <div className="bg-zinc-900 p-30 px-50 min-h-screen w-full ">
-          <span className="cursor-pointer text-[0.8rem] mb-4 bg-blue-900 p-0.5 px-3 rounded-e-2xl  shadow-md shadow-amber-200/30 hover:shadow-lg transition-shadow duration-300"><em>{String(details.category).toUpperCase()}</em></span>
+          <span className="cursor-pointer text-[0.8rem] mb-4 bg-blue-900 p-0.5 px-3 rounded-e-2xl  shadow-md shadow-amber-200/30 hover:shadow-lg transition-shadow duration-300"><em>{(details.category).toUpperCase()}</em></span>
             <img className="aspect-square object-contain h-50 mx-auto "src={details.image} alt={details.title}/>
-            <div className="flex flex-col gap-3 mt-4">
-            <h2 className="text-center text-4xl hover:text-gray-400 duration-300">{details.title}</h2>
-               <div className="text-center">
-                Ratings: <span className="bg-green-500 rounded-4xl py-0.5 px-2 mr-2">⭐{details?.rating?.rate}</span>
+            <div className="flex flex-col gap-3 mt-4 p-2">
+            <h2 className="text-center text-4xl hover:text-gray-400 duration-300 mb-6">{details.title}</h2>
+               <div className="flex flex-col gap-2">
+                <p>
+                  Ratings: {" "}
+                 <span className="bg-green-500 rounded-4xl py-0.5 px-2 mr-2 w-fit">⭐{details?.rating?.rate}</span>
+                  </p>
+
                 <span>In Stock: {details?.rating?.count}</span>
                </div>
             <p className="text-left"> <span className="text-white font-bold">Description: </span>{details.description}</p>
