@@ -3,7 +3,7 @@ import Wrapper from "./Wrapper";
 import { useNewsContext } from "../context/NewsContext";
 const Navbar = ({ className }) => {
    const [query,setQuery]=useState("");
-  const {  fetchNews, setNews } = useNewsContext();
+  const {  fetchNews, setNews,setHeadlines } = useNewsContext();
   // console.log(query);
 
   const handleQueryChange = (e) => {
@@ -28,6 +28,10 @@ const Navbar = ({ className }) => {
     
   }, [query]);
 
+  const openHeadlines = () => {
+setHeadlines(true)
+  }
+
   return (
     <>
       <div className={`${className} bg-base-200`}>
@@ -46,7 +50,9 @@ const Navbar = ({ className }) => {
                 value={query}
                 onChange={handleQueryChange}
               />
-              <button className="btn btn-ghost btn-circle">
+              <button 
+              onClick={openHeadlines}
+              className="btn btn-ghost btn-circle">
                 <div className="indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

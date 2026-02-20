@@ -8,6 +8,8 @@ const NewsContextProvider = ({ children }) => {
 
   const [news, setNews] = useState([]);
  const [loading,setLoading] = useState(false);
+ const [headlines,setHeadlines] = useState(false);
+
   const fetchNews = async (url = `/everything?q=india`) => {
     try {
       setLoading(true);
@@ -30,6 +32,8 @@ const NewsContextProvider = ({ children }) => {
     setNews,
     fetchNews,
     loading,
+    headlines,
+    setHeadlines
     
    
   };
