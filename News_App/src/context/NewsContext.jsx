@@ -9,6 +9,7 @@ const NewsContextProvider = ({ children }) => {
   const [news, setNews] = useState([]);
  const [loading,setLoading] = useState(false);
  const [headlines,setHeadlines] = useState(false);
+ const [category,setCategory] = useState("india")
 
   const fetchNews = async (url = `/everything?q=india`) => {
     try {
@@ -16,7 +17,7 @@ const NewsContextProvider = ({ children }) => {
       const response = await api.get(
         `${url}&apiKey=${import.meta.env.VITE_API_KEY}`
       );
-      console.log(response);
+      // console.log(response);
       
       setLoading(false)
       return response.data;
@@ -33,7 +34,9 @@ const NewsContextProvider = ({ children }) => {
     fetchNews,
     loading,
     headlines,
-    setHeadlines
+    setHeadlines,
+    category,
+    setCategory
     
    
   };

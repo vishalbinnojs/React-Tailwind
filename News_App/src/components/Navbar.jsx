@@ -4,7 +4,6 @@ import { useNewsContext } from "../context/NewsContext";
 const Navbar = ({ className }) => {
    const [query,setQuery]=useState("");
   const {  fetchNews, setNews,setHeadlines } = useNewsContext();
-  // console.log(query);
 
   const handleQueryChange = (e) => {
     const { value } = e.target;

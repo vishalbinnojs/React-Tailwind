@@ -7,19 +7,19 @@ import Loader from "../components/Loader";
 
 const News = ({ className }) => {
   const { news, setNews, fetchNews,loading } = useNewsContext();
-  console.log(news);
-
-// loading default news on component mount
+  
+  // loading default news on component mount
   useEffect(() => {
-
+    
     (async () => {
       const data = await fetchNews();
       setNews(data.articles);
     })();
-
+    
   }, []);
-
+  
   if(loading) return <Loader />;
+  console.log(news);
 
   return (
     <>

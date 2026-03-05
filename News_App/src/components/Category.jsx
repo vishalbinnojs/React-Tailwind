@@ -1,8 +1,12 @@
 import React from "react";
 import Wrapper from "./Wrapper";
 import {useNewsContext} from "../context/NewsContext";
+import Headlines from "./Headlines"
+
+
 const Category = ({className}) => {
-  const {setNews,fetchNews} = useNewsContext();
+  const {setNews,fetchNews,category,setCategory} = useNewsContext();
+
   const categories = [
     "business",
     "entertainment",
@@ -15,12 +19,14 @@ const Category = ({className}) => {
 
   const handleNewsByCategory = async (e) =>{
    const category = e.target.value;
-    console.log(category);
+   setCategory(category)
     
     const data = await fetchNews(`/everything?q=${category}`)  
     setNews(data.articles);
   }
   return (
+    <>
+    <Headlines query={category}/>
     <div className={`${className}`}>
 
     <Wrapper>
@@ -36,6 +42,7 @@ const Category = ({className}) => {
       </div>
     </Wrapper>
     </div>
+    </>
   );
 };
 

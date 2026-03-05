@@ -2,20 +2,22 @@ import React from "react";
 import { useNewsContext } from "../context/NewsContext";
 
 
-const Headlines = () => {
+const Headlines = ({query}) => {
+  console.log("Headlines",query);
+  
 const [topNews,setTopNews] = React.useState([]);
 
     const {headlines,setHeadlines,fetchNews} = useNewsContext()
     
     React.useEffect(()=>{
 (async ()=>{
-    const data = await fetchNews(`/everything?q=headlines`)
-    const top10 = data.articles.slice(0,15)
+    const data = await fetchNews(`/top-headlines?q=${query}`)
+    const top10 = data.articles
     setTopNews(top10)
     console.log(top10);
     
 })()
-    },[])
+    },[query])
   return (
     <>
     <div 
