@@ -1,14 +1,16 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Wrapper from "./Wrapper";
 import { useNewsContext } from "../context/NewsContext";
+
 const Navbar = ({ className }) => {
-   const [query,setQuery]=useState("");
-  const {  fetchNews, setNews,setHeadlines } = useNewsContext();
+  const [query, setQuery] = useState("");
+  const { fetchNews, setNews, setHeadlines } = useNewsContext();
 
   const handleQueryChange = (e) => {
     const { value } = e.target;
     setQuery(value);
   };
+  
   useEffect(() => {
     if (!query) return;
 
@@ -24,12 +26,11 @@ const Navbar = ({ className }) => {
 
     console.log("query render");
     return () => clearTimeout(timer);
-    
   }, [query]);
 
   const openHeadlines = () => {
-setHeadlines(true)
-  }
+    setHeadlines(true);
+  };
 
   return (
     <>
@@ -49,9 +50,10 @@ setHeadlines(true)
                 value={query}
                 onChange={handleQueryChange}
               />
-              <button 
-              onClick={openHeadlines}
-              className="btn btn-ghost btn-circle">
+              <button
+                onClick={openHeadlines}
+                className="btn btn-ghost btn-circle"
+              >
                 <div className="indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
