@@ -1,51 +1,75 @@
-import { FETCH_CURRENT_SUCCESS, FETCH_FORECAST_SUCCESS, FETCH_WEATHER_PENDING, FETCH_WEATHER_ERROR,SET_CITY} from "../constants/weatherConstants"
+
+import { FETCH_CURRENT_ERROR, FETCH_CURRENT_PENDING, FETCH_CURRENT_SUCCESS, FETCH_FORECAST_ERROR, FETCH_FORECAST_PENDING, FETCH_FORECAST_SUCCESS, SET_CITY } from '../constants/weatherConstants';
 
 const initialState = {
     city:"Delhi",
     current: null,
     forecast: null,
-    loading: false,
-    error: null,
-
+    currentLoading: false,
+    forecastLoading:false,
+    error: null
 }
 
 export const weatherReducer = (state = initialState, action) => {
-    if (action.type === FETCH_WEATHER_PENDING) {
+    if (action.type === FETCH_CURRENT_PENDING) {
         return {
             ...state,
-            loading: true,
+            currentLoading: true,
             error: null
         }
     }
     else if (action.type === FETCH_CURRENT_SUCCESS) {
         return {
-            ...state, 
-            loading: false,
-            current: action.payload, 
+            ...state,
+            currentLoading: false,
+            current: action.payload,
+            forecast:null
+        }
+    }
+    else if (action.type === FETCH_CURRENT_ERROR) {
+        return {
+            ...state,
+            currentLoading: false,
+            error: action.payload
+        }
+    }
+    else if (action.type === FETCH_FORECAST_PENDING) {
+        return {
+            ...state,
+            forecastLoading: true,
+            error: null
         }
     }
     else if (action.type === FETCH_FORECAST_SUCCESS) {
         return {
-            ...state, 
-            loading: false,
-            forecast: action.payload, 
+            ...state,
+            forecastLoading: false,
+            forecast: action.payload
         }
     }
-    else if (action.type === FETCH_WEATHER_ERROR) {
+    else if (action.type === FETCH_FORECAST_ERROR) {
         return {
-            ...state, 
-            loading: false, 
-            error: action.payload,
+            ...state,
+            forecastLoading: false,
+            error: action.payload
         }
     }
     else if (action.type === SET_CITY) {
-        console.log(state);
-        
-return{
-    ...state, city: action.payload
-}
+        return {
+            ...state,
+            city: action.payload
+        }
     }
     else {
-        return state;
+        return state
     }
+
 }
+
+
+
+
+
+
+
+
