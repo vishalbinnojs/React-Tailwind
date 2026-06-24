@@ -92,6 +92,7 @@ console.log("");
           style="#22C55E"
           showQuestion={nextQuestion}
           icon={<FaAngleDoubleRight />}
+          disabled={isLastQuestion} // This is disabled prop to the button component, which will disable the button when the current index is the last question.
         >
           Next
         </Button>
@@ -99,7 +100,7 @@ console.log("");
 
       {isLastQuestion && (
         <button
-          className="px-3 py-2 w-[100px] bg-[#10B981] rounded-xl  hover:scale-110 transform-gpu transition-all duration-200 cursor-pointer  "
+          className="px-3 py-2 w-[100px] bg-[#10B981] rounded-xl  hover:scale-110 transform-gpu transition-all duration-200 cursor-pointer animate-pulse"
           onClick={() => {
             if (confirm("Are you sure you want to submit?")) {
               getScore(score);
