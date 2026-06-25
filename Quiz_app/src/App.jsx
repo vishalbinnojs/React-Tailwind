@@ -18,7 +18,7 @@ const receiveScore = (score) =>{
 
   return (
     <>
-  {showResult ? (<div className="bg-transparent rounded-2xl shadow-lg shadow-gray-800 p-5  text-center w-[500px]">
+  {showResult ? (<div className="bg-transparent rounded-2xl shadow-lg shadow-gray-800 p-5  text-center w-[500px] max-[520px]:w-[420px] max-[420px]:w-[350px]">
 
     <Timer setShowResult={setShowResult}/>
     <Questions getScore={receiveScore} setShowResult={setShowResult}/>

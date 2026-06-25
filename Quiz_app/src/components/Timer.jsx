@@ -34,7 +34,7 @@ const Timer = ({setShowResult}) => {
 
   return (
     <>
-    <h1 className="text-3xl my-5 ">⏳ Time Left : {displayTime}</h1>
+    <h1 className="max-[500px]:text-2xl text-3xl my-5 ">⏳ Time Left : {displayTime}</h1>
 
     </>
   )

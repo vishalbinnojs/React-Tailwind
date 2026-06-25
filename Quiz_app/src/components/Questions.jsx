@@ -56,7 +56,7 @@ console.log("");
       <span className=" inline-block mb-2">
         Questions : {currentIndex + 1}/{questions.length}
       </span>
-      <h2 className="text-2xl bg-gray-900 border-2 p-2 rounded-md">
+      <h2 className="text-2xl bg-gray-900 border-2 p-2 rounded-md max-[420px]:text-lg ">
         {questions[currentIndex].question}
       </h2>
       <div className="flex flex-col mt-4">
@@ -66,8 +66,8 @@ console.log("");
             onClick={() => handleOptionClick(option, idx)}
             className={`bg-[#1E293B] m-1 p-3 rounded-md hover:bg-gray-900 hover:outline-1 cursor-pointer flex justify-between items-center`}
           >
-            <span>{idx + 1}</span>
-            <span>{option}</span>
+            <span>{idx + 1}.</span>
+            <span className="max-[420px]:text-[14px]">{option}</span>
             <span className=" bg-green-600 rounded-full ">
               <IoCheckmarkDoneCircle
                 size={20}
